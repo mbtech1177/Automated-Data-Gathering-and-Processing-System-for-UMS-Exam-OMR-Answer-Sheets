@@ -115,7 +115,7 @@
 												</a>
 											</th>
 										</tr>
-
+										{% block javascript %}
 										{% if i.status == "PENDING" %}
 											<script type="text/javascript">
 												window.setTimeout(function () {
@@ -123,6 +123,7 @@
 												}, 30000);
 											</script>
 										{% endif %}
+										{% endblock %}
 										{% endfor %}
 									</tbody>
 								</table>
