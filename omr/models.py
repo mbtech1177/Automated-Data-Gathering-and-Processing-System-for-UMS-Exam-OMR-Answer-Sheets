@@ -8,3 +8,13 @@ class Home(models.Model):
 	date = models.DateTimeField('date published')
 	status = models.CharField(max_length=200)
 	remarks = models.CharField(max_length=200)
+
+	def __str__(self):
+		return self.id
+
+class Excel(models.Model):
+	path = models.CharField(max_length=200)
+	home = models.ForeignKey(Home, on_delete=models.CASCADE)
+
+	def __str__(self):
+		return self.id
