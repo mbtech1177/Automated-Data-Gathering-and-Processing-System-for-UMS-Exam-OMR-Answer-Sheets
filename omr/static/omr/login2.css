@@ -1,0 +1,61 @@
+/* LOGIN */
+
+.login2 #container {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 28em;
+    min-width: 300px;
+    margin: 100px auto;
+}
+
+.login2 #header {
+	height: auto;
+	padding-top: : 5px;
+	padding-bottom: 5px;
+	background: #3AAFA9;
+}
+
+.login2 #header h1 {
+	color: #FEFFFF;
+	font-size: 20px;
+	font-family: "Roboto", sans-serif;
+}
+
+.login2 .submit-row {
+	clear: both;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding-top: 30px;
+}
+
+.login2 .submit-row input {
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+	background: #BAB2B5;
+}
+
+.login2 input[type=submit]:hover {
+	background: #2B7A78;
+}
+
+.login2 .message-row {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: -15px;
+}
+
+.login2 .message-row p a {
+    text-decoration: underline;
+}
+
+.login2 #content-main p {
+	line-height: 2em;
+}
+
+.login2 #content-main input[type=text], .login2 #content-main input[type=password] {
+	width: 95%;
+	padding: 8px;
+}

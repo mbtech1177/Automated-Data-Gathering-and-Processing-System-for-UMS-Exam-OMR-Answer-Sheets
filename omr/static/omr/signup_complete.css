@@ -1,0 +1,47 @@
+/* SIGN UP COMPLETE */
+
+.signup_complete #container {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 28em;
+    min-width: 300px;
+    margin: 100px auto;
+}
+
+.signup_complete #header {
+	height: auto;
+	padding-top: : 5px;
+	padding-bottom: 5px;
+	background: #3AAFA9;
+}
+
+.signup_complete #header h1 {
+	color: #FEFFFF;
+	font-size: 20px;
+	font-family: "Roboto", sans-serif;
+}
+
+.signup_complete #content-main p {
+	font-size: 18px;
+}
+
+.signup_complete .submit-row {
+	clear: both;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding-top: 30px;
+  	float: right;
+}
+
+.signup_complete .submit-row input {
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+	background: #BAB2B5;
+}
+
+.signup_complete input[type=submit]:hover {
+	background: #2B7A78;
+}

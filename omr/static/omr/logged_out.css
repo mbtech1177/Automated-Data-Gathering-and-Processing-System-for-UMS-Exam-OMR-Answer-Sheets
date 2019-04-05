@@ -1,0 +1,28 @@
+/* LOGGED OUT */
+
+.logged_out #container {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 28em;
+    min-width: 300px;
+    margin: 100px auto;
+}
+
+.logged_out #header {
+	height: auto;
+	padding-top: : 5px;
+	padding-bottom: 5px;
+	background: #3AAFA9;
+}
+
+.logged_out #header h1 {
+	color: #FEFFFF;
+	font-size: 20px;
+	font-family: "Roboto", sans-serif;
+}
+
+.logged_out a {
+	text-decoration: underline;
+}

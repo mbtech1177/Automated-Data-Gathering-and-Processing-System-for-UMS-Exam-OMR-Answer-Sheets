@@ -1,0 +1,38 @@
+/* HEADER */
+
+.header #header {
+    height: auto;
+    padding: 25px 40px;
+    background: #3AAFA9;
+    line-height: inherit;
+}
+
+.header img {
+    padding: 10px 10px;
+    float:left;
+	width: 200px;
+	height: auto;
+}
+
+.header #header h1 {
+    float:left;
+	color: #FEFFFF;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: "Poiret One", cursive;
+}
+
+.header #header h2 {
+	color: #17252A;
+    font-size: 20px;
+    font-style: oblique;
+    font-family: "Roboto", sans-serif;;
+}
+
+.header #branding {
+    padding: 10px 20px;
+}
+
+.header #branding h2 {
+    padding: 0px 0px;
+}

@@ -1,0 +1,54 @@
+/* HOME */
+
+.home #container {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: auto;
+    width: 80%;
+    min-width: 300px;
+    margin: 100px auto;
+}
+
+.home .new_task {
+	margin-bottom: 10px;
+}
+
+.home .new_task input {
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+	background: #BAB2B5;
+}
+
+.home input[type=submit]:hover {
+	background: #2B7A78;
+}
+
+.home thead th {
+	background: #3AAFA9;
+	vertical-align: middle;
+}
+
+.home thead th .text p {
+	color: #FEFFFF;
+	padding: 8px 10px;
+	margin: 0;
+	font-size: 15px;
+	font-weight: 300;
+	font-family: "Roboto", sans-serif;
+}
+
+.home tbody th p {
+	fonr-size: 13px;
+	font-weight: 300;
+	font-family: "Roboto", sans-serif;
+}
+
+.home .download input {
+	font-family: "Roboto", sans-serif;
+	font-size: 13px;
+	background: #BAB2B5;
+	display: block;
+	margin: 0 auto;
+	padding: 5px 10px;
+}

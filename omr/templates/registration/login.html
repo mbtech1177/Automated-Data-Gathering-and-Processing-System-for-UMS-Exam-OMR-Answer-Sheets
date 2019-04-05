@@ -1,0 +1,45 @@
+{% extends "omr/header.html" %}
+
+{% block title %} 
+<title>LOGIN</title>
+{% endblock %}
+
+{% block body %}
+<body class="login2">
+	{# Container #}
+	<div id="container">
+		{# Header #}
+		<div id="header">
+			<div id="branding">
+				<h1 id="site-name">
+					LOGIN
+				</h1>
+			</div>
+		</div>
+		{# END Header #}
+		{# Content #}
+		<div id="content" class="colM">
+			<div id="content-main">
+				<form method="post" id="login-form">
+					{% csrf_token %}
+					{{ form.as_p }}
+					<div class="submit-row">
+						<label>&nbsp;</label>
+						<input type="submit" value="Log in">
+					</div>
+				</form>
+				<div class="message-row">
+					<p>
+						<label>&nbsp;</label>
+						Need an account?
+						<a href="{% url 'omr:signup' %}">Sign Up</a>
+					</p>
+				</div>
+			</div>
+			<br class="clear">
+		</div>
+		{# END Content #}
+	</div>
+	{# END Container #}
+</body>
+{% endblock %}

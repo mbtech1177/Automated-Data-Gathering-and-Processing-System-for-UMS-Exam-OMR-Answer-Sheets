@@ -1,0 +1,61 @@
+/* SIGN UP */
+
+.signup #container {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 28em;
+    min-width: 300px;
+    margin: 100px auto;
+}
+
+.signup #header {
+	height: auto;
+	padding-top: : 5px;
+	padding-bottom: 5px;
+	background: #3AAFA9;
+}
+
+.signup #header h1 {
+	color: #FEFFFF;
+	font-size: 20px;
+	font-family: "Roboto", sans-serif;
+}
+
+.signup .submit-row {
+	clear: both;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding-top: 30px;
+}
+
+.signup .submit-row input {
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+	background: #BAB2B5;
+}
+
+.signup input[type=submit]:hover {
+	background: #2B7A78;
+}
+
+.signup .message-row {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: -15px;
+}
+
+.signup .message-row p a {
+    text-decoration: underline;
+}
+
+.signup #content-main p {
+	line-height: 2em;
+}
+
+.signup #content-main input[type=text], .signup #content-main input[type=password] {
+	width: 95%;
+	padding: 8px;
+}

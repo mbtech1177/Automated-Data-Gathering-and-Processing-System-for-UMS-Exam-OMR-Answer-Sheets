@@ -1,0 +1,33 @@
+<!-- HEADER -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'omr/base.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'omr/responsive.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'omr/login2.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'omr/signup.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'omr/signup_complete.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'omr/logged_out.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'omr/upload_files.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'omr/home.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'omr/header.css' %}">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poiret+One">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+
+	<div class="header">
+		<div id="header">
+			{% block title %} {% endblock %}
+			<img src="{% static "omr/media/LOGO_UMS_black.png" %}" alt="LOGO_UMS-white">
+			<div id="branding">
+				<h1 id="site-name">
+					Automated Data Gathering and Processing System	
+				</h1>
+				<h2>for UMS Exam OMR Answer Sheets</h2>
+			</div>
+		</div>
+	</div>
+</head>
+{% block body %} {% endblock %}
+</html>

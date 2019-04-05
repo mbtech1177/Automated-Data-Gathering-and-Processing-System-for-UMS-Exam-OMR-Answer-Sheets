@@ -1,0 +1,99 @@
+{% extends "omr/header.html" %}
+
+{% block title %} 
+<title>UPLOAD FILES</title>
+{% endblock %}
+
+{% block body %}
+<body class="upload_files">
+	{% if user.is_authenticated %}
+		<p>
+			<label>&nbsp;</label>
+			WELCOME, {{ user.username }}<br>
+			<label>&nbsp;</label>
+			<a href="{% url 'logout' %}">LOG OUT</a>
+		</p>
+		{# Container #}
+		<div id="container">
+			{# Header #}
+			<div id="header">
+				<div id="branding">
+					<h1 id="site-name">
+						UPLOAD FILES
+					</h1>
+				</div>
+			</div>
+			{# END Header #}
+			{# Content #}
+			<div id="content" class="colM">
+				<div id="content-main">
+					<form method="post" enctype="multipart/form-data">
+						<div class="form-row">
+							<p>
+								<label for="course_code">Course code:</label>
+								<input type="text" name="course_code" id="course_code">
+							</p>
+						</div>
+						<div class="form-row">
+							<p>
+								<label for="course_name">Course name:</label>
+								<input type="text" name="course_name" id="course_name">
+							</p>
+						</div>
+						<div class="form-row">
+							<p>
+								<label for="ques_total">Total number of questions:</label>
+								<input type="number" name="total_ques" id="total_ques" min="1" max="100">
+							</p>
+						</div>
+						<div class="form-row">
+							{% csrf_token %}
+							<p>
+								<label for="answer_scheme">Answer scheme:</label>
+								<input type="file" name="answer_scheme" id="answer_scheme">
+							</p>
+						</div>
+						<div class="form-row">
+							{% csrf_token %}
+							<p>
+								<label for="answer_sheet">Student answer sheet:</label>
+								<input type="file" name="answer_sheet" id="answer_sheet">
+							</p>
+						</div>
+						<div class="submit-row">
+							<label>&nbsp;</label>
+							<input type="submit" value="Process">
+						</div>
+					</form>
+				</div>
+				<br class="clear">
+			</div>
+			{# END Content #}
+		</div>
+		{# END Container #}
+	{% else %}
+		{# Container #}
+		<div id="container">
+			{# Header #}
+			<div id="header">
+				<div id="branding">
+					<h1 id="site-name">
+						UNAUTHORIZED ACCESS
+					</h1>
+				</div>
+			</div>
+			{# END Header #}
+			{# Content #}
+			<div id="content" class="colM">
+				<div id="content-main">
+					<p>You are not logged in !!!</p>
+					<a href="{% url 'login'%}">Click here to log in.</a>
+				</div>
+				<br class="clear">
+			</div>
+			{# END Content #}
+		</div>
+		{# END Container #}
+	{% endif %}
+</body>
+{% endblock %}

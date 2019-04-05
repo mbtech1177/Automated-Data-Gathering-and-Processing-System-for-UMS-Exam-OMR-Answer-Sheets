@@ -1,0 +1,51 @@
+/* UPLOAD FILES */
+
+.upload_files #container {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 28em;
+    min-width: 300px;
+    margin: 100px auto;
+}
+
+.upload_files #header {
+	height: auto;
+	padding-top: : 5px;
+	padding-bottom: 5px;
+	background: #3AAFA9;
+}
+
+.upload_files #header h1 {
+	color: #FEFFFF;
+	font-size: 20px;
+	font-family: "Roboto", sans-serif;
+}
+
+.upload_files input[type=text], .upload_files input[type=number] {
+	width: 95%;
+	padding: 8px;
+}
+
+.upload_files #content-main p {
+	line-height: 2em;
+}
+
+.upload_files .submit-row {
+	clear: both;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding-top: 30px;
+}
+
+.upload_files .submit-row input {
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+	background: #BAB2B5;
+}
+
+.upload_files input[type=submit]:hover {
+	background: #2B7A78;
+}
