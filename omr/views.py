@@ -72,8 +72,8 @@ def upload_files(request):
 		answer_sheet = request.FILES['answer_sheet']
 		answer_sheet_name = fs.save(answer_sheet.name, answer_sheet)
 		answer_sheet_type = answer_sheet.content_type
-		omr_process.delay(answer_scheme_name, answer_scheme_type, answer_sheet_name, answer_sheet_type, total_questions, template_bmp, start_time)
-		
+		omr_process.delay(answer_scheme_name, answer_scheme_type, answer_sheet_name, answer_sheet_type, total_questions, template_bmp, start_time, course_code)
+
 		return redirect('/omr/home')
 
 	return render(request, 'omr/upload_files.html')
