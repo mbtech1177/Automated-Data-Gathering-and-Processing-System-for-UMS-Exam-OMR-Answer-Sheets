@@ -5,10 +5,11 @@ from django.core.files.storage import FileSystemStorage
 from django.db.models import F
 
 from omr.forms import SignUpForm
-from omr.models import Home
+from omr.models import Home, Excel
 from omr.tasks import omr_process
 
 from datetime import datetime
+import os
 
 # Create your views here.
 def signup(request):
@@ -37,6 +38,16 @@ def home(request):
 	data = Home.objects.all()
 	args = {'data': data}
 	return render(request, 'omr/home.html', args)
+
+def download_excel(reuqets, home_id):
+	excel_path = Excel.objects.get(home_id = home_id).path
+	generated_date = Home.objects.get(pk = home_id).date
+	if os.path.exists(excel_path):
+		with open(excel_path, 'rb') as fh:
+			response = HttpResponse(fh.read(), content_type = "application/vnd.ms-excel")
+			response['Content-Disposition'] = 'inline; filename =' + '[' + str(generated_date.strftime("%x")) + ']' + '_' + '[' + str(generated_date.strftime("%X")) + ']' + '_' + os.path.basename(excel_path)
+			return response
+	raise Http404
 
 def delete_tasks(request, task_number):
 	task = Home.objects.get(number = task_number)
