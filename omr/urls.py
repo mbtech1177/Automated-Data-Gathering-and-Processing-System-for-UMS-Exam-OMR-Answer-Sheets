@@ -8,4 +8,5 @@ urlpatterns = [
 	path('home/', views.home, name='home'),
 	path('upload_files/', views.upload_files, name='upload_files'),
 	path('<int:task_number>/delete_tasks/', views.delete_tasks, name='delete_tasks'),
+	path('<int:home_id>/download_excel/', views.download_excel, name='download_excel'),
 ]
