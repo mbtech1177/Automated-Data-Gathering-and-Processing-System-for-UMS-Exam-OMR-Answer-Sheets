@@ -105,12 +105,14 @@
 											<th>
 												{% if i.status == "COMPLETE" %}
 												<div class="download">
-													<input type="submit" value="Download">
+													<a href="{% url 'omr:download_excel' i.id %}">
+														<input type="button" value="Download">
+													</a>
 												</div>
 												{% endif %}
 											</th>
 											<th>
-												<a class="confirm-delete" href="{% url 'omr:delete_tasks' i.number %}">
+												<a href="{% url 'omr:delete_tasks' i.number %}">
 													<img src="{% static 'omr/media/delete.png' %}" alt="delete" style="display:block; margin:auto;">
 												</a>
 											</th>
