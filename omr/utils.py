@@ -55,3 +55,5 @@ def generateExcel(course_code, data):
 		row += 1
 
 	workbook.close()
+
+	return excel_name
