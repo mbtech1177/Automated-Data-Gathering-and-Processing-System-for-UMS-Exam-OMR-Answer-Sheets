@@ -20,7 +20,7 @@
 	background: #BAB2B5;
 }
 
-.home input[type=submit]:hover {
+.home input[type=submit]:hover, .home .download a input[type=button]:hover {
 	background: #2B7A78;
 }
 
