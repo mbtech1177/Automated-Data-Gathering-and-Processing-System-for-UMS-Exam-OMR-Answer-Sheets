@@ -8,7 +8,7 @@ import OpticalMarkRecognition_MATLAB
 
 
 @shared_task
-def omr_process(answer_scheme_name, answer_scheme_type, answer_sheet_name, answer_sheet_type, total_questions, template_bmp, start_time, course_code):
+def omr_process(answer_scheme_name, answer_scheme_type, answer_sheet_name, answer_sheet_type, total_questions, template_bmp, start_time, course_code_excel):
 	fs = FileSystemStorage()
 	omr = OpticalMarkRecognition_MATLAB.initialize()
 	collection_array = []
@@ -31,7 +31,7 @@ def omr_process(answer_scheme_name, answer_scheme_type, answer_sheet_name, answe
 		result = omr.result(answer_scheme_answers, answer_sheet_answers, total_questions)
 
 		collection_array.append([str(matric_number), str(course_code), str(answer_sheet_answers), result])
-		excel_path = generateExcel(course_code, collection_array)
+		excel_path = generateExcel(course_code_excel, collection_array)
 
 	else:
 		for i in range(answer_sheet_page_num):
@@ -47,10 +47,11 @@ def omr_process(answer_scheme_name, answer_scheme_type, answer_sheet_name, answe
 
 			collection_array.append([str(matric_number), str(course_code), str(answer_sheet_answers), result])
 
-		excel_path = generateExcel(course_code, collection_array)
+		excel_path = generateExcel(course_code_excel, collection_array)
 
 	omr.terminate()
 
-	data = Excel(path = excel_path, home_id = Home.objects.get(course_code = course_code, date = start_time).pk)
+	home = Home.objects.get(course_code = course_code_excel, date = start_time)
+	data = Excel(path = excel_path, home_id = home.pk)
 	data.save()
-	Home.objects.filter(course_code = course_code, date = start_time).filter(status = "PENDING").update(status = "COMPLETE")
+	Home.objects.filter(course_code = course_code_excel, date = start_time).filter(status = "PENDING").update(status = "COMPLETE")
