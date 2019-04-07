@@ -52,3 +52,26 @@
 	margin: 0 auto;
 	padding: 5px 10px;
 }
+
+.home #header {
+	height: auto;
+	padding-top: : 5px;
+	padding-bottom: 5px;
+	background: #3AAFA9;
+}
+
+.home #header h1 {
+	color: #FEFFFF;
+	font-size: 20px;
+	font-family: "Roboto", sans-serif;
+}
+
+.home #container2 {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: auto;
+    width: 28em;
+    min-width: 300px;
+    margin: 100px auto;
+}
