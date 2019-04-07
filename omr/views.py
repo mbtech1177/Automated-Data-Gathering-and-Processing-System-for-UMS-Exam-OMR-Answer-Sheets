@@ -9,7 +9,7 @@ from omr.models import Home, Excel
 from omr.tasks import omr_process
 
 from datetime import datetime
-import os
+import os, openpyxl
 
 # Create your views here.
 def signup(request):
@@ -37,16 +37,35 @@ def logged_out(request):
 def home(request):
 	data = Home.objects.all()
 	args = {'data': data}
+
 	return render(request, 'omr/home.html', args)
 
-def download_excel(reuqets, home_id):
+def view_results(request, home_id):
+	excel_path = Excel.objects.get(home_id = home_id).path
+	wb = openpyxl.load_workbook(excel_path)
+	worksheet = wb["Sheet1"]
+	excel_data = list()
+	args = {'excel_data': excel_data}
+
+	for row in worksheet.iter_rows():
+		row_data = list()
+		
+		for cell in row:
+			row_data.append(str(cell.value))
+		excel_data.append(row_data)
+
+	return render(request, 'omr/view_results.html', args)
+
+def download_excel(request, home_id):
 	excel_path = Excel.objects.get(home_id = home_id).path
 	generated_date = Home.objects.get(pk = home_id).date
+
 	if os.path.exists(excel_path):
 		with open(excel_path, 'rb') as fh:
 			response = HttpResponse(fh.read(), content_type = "application/vnd.ms-excel")
 			response['Content-Disposition'] = 'inline; filename =' + '[' + str(generated_date.strftime("%x")) + ']' + '_' + '[' + str(generated_date.strftime("%X")) + ']' + '_' + os.path.basename(excel_path)
 			return response
+
 	raise Http404
 
 def delete_tasks(request, task_number):
