@@ -42,10 +42,11 @@ def home(request):
 
 def view_results(request, home_id):
 	excel_path = Excel.objects.get(home_id = home_id).path
+	task_number = Home.objects.get(pk = home_id).number
 	wb = openpyxl.load_workbook(excel_path)
 	worksheet = wb["Sheet1"]
 	excel_data = list()
-	args = {'excel_data': excel_data}
+	args = {'excel_data': excel_data, 'home_id': home_id, 'task_number': task_number}
 
 	for row in worksheet.iter_rows():
 		row_data = list()
