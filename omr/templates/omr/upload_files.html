@@ -7,12 +7,25 @@
 {% block body %}
 <body class="upload_files">
 	{% if user.is_authenticated %}
-		<p>
-			<label>&nbsp;</label>
-			WELCOME, {{ user.username }}<br>
-			<label>&nbsp;</label>
-			<a href="{% url 'logout' %}">LOG OUT</a>
-		</p>
+		<div class="breadcrumbs">
+			<div class="navigation">
+				<p>
+					<label>&nbsp;</label>
+					<a href="{% url 'omr:home' %}">HOME</a>
+					<label>&nbsp;</label>
+					>
+					<label>&nbsp;</label>
+					<a href="{% url 'omr:upload_files' %}">UPLOAD FILES</a>
+					<label>&nbsp;</label>
+				</p>
+			</div>
+			<div class="user">
+				<p>
+					<label>&nbsp;</label>
+					You are logged in as {{ user.username }}. ( <a href="{% url 'logout' %}">LOG OUT</a> )
+				</p>
+			</div>
+		</div>
 		{# Container #}
 		<div id="container">
 			{# Header #}
