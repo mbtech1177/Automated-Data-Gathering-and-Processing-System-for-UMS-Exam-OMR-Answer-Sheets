@@ -49,3 +49,35 @@
 .upload_files input[type=submit]:hover {
 	background: #2B7A78;
 }
+
+.upload_files .breadcrumbs {
+	background: #f3f3f3;
+	padding: 5px 20px;
+	position: sticky;
+	top: 0px;
+}
+
+.upload_files .breadcrumbs p {
+	color: #000000;
+	margin: 5px;
+}
+
+.upload_files .breadcrumbs .navigation p {
+	float: left;
+}
+
+.upload_files .breadcrumbs .navigation p a {
+	color: #000000;
+}
+
+.upload_files .breadcrumbs .user p {
+	text-align: end;
+}
+
+.upload_files .breadcrumbs .user p a {
+	color: #447e9b;
+}
+
+.upload_files .breadcrumbs p a:hover {
+	color: #A9A9A9;
+}
