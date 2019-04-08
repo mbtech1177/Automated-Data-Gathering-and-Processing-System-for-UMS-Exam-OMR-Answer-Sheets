@@ -5,30 +5,78 @@
 {% endblock %}
 
 {% block body %}
-<table align="center">
-	{% for row in excel_data %}
-		{% if forloop.first %}
-		<tr>
-			{% for cell in row %}
-				<th>
-					{{ cell }}
-				</th>
-			{% endfor %}
-			<br class="clear">
-		</tr>
-		{% else %}
-		<tr>
-			{% for cell in row %}
-				<label>&nbsp;</label>
-				<td>
-					{{ cell }}
-				</td>
-				<label>&nbsp;</label>
-				<label>&nbsp;</label>
-			{% endfor %}
-		</tr>
-		{% endif %}
-	{% endfor %}
+<body class="view_results">
+	{% if user.is_authenticated %}
+		<div class="breadcrumbs">
+			<div class="navigation">
+				<p>
+					<label>&nbsp;</label>
+					<a href="{% url 'omr:home' %}">HOME</a>
+					<label>&nbsp;</label>
+					>
+					<label>&nbsp;</label>
+					<a href="{% url 'omr:view_results' home_id %}">TASK {{ task_number }} - RESULTS</a>
+					<label>&nbsp;</label>
+				</p>
+			</div>
+			<div class="user">
+				<p>
+					<label>&nbsp;</label>
+					You are logged in as {{ user.username }}. ( <a href="{% url 'logout' %}">LOG OUT</a> )
+				</p>
+			</div>
+		</div>
+		{# Content #}
+		<table align="center">
+		{% for row in excel_data %}
+			{% if forloop.first %}
+				<tr>
+					{% for cell in row %}
+						<th>
+							{{ cell }}
+						</th>
+					{% endfor %}
+					<br class="clear">
+				</tr>
+				{% else %}
+				<tr>
+					{% for cell in row %}
+						<label>&nbsp;</label>
+						<td>
+							{{ cell }}
+						</td>
+						<label>&nbsp;</label>
+						<label>&nbsp;</label>
+					{% endfor %}
+				</tr>
+			{% endif %}
+		{% endfor %}
 </table>
 <br class="clear">
+		{# END Content #}
+	{% else %}
+		{# Container #}
+		<div id="container">
+			{# Header #}
+			<div id="header">
+				<div id="branding">
+					<h1 id="site-name">
+						UNAUTHORIZED ACCESS
+					</h1>
+				</div>
+			</div>
+			{# END Header #}
+			{# Content #}
+			<div id="content" class="colM">
+				<div id="content-main">
+					<p>You are not logged in !!!</p>
+					<a href="{% url 'login'%}">Click here to log in.</a>
+				</div>
+				<br class="clear">
+			</div>
+			{# END Content #}
+		</div>
+		{# END Container #}
+	{% endif %}
+</body>
 {% endblock %}
