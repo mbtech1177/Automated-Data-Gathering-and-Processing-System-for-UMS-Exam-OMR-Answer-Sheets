@@ -8,12 +8,20 @@
 {% block body %}
 <body class="home">
 	{% if user.is_authenticated %}
-		<p>
-			<label>&nbsp;</label>
-			WELCOME, {{ user.username }}<br>
-			<label>&nbsp;</label>
-			<a href="{% url 'logout' %}">LOG OUT</a>
-		</p>
+		<div class="breadcrumbs">
+			<div class="navigation">
+				<p>
+					<label>&nbsp;</label>
+					<a href="{% url 'omr:home' %}">HOME</a>
+				</p>
+			</div>
+			<div class="user">
+				<p>
+					<label>&nbsp;</label>
+					You are logged in as {{ user.username }}. ( <a href="{% url 'logout' %}">LOG OUT</a> )
+				</p>
+			</div>
+		</div>
 		{# Container #}
 		<div id="container">
 			{# Content #}
@@ -61,9 +69,9 @@
 												</div>
 												<div class="clear"></div>
 											</th>
-											<th scope="col" class="remarks">
+											<th scope="col" class="result">
 												<div class="text">
-													<p>Remarks</p>
+													<p>Result</p>
 												</div>
 												<div class="clear"></div>
 											</th>
@@ -100,7 +108,13 @@
 												<p>{{ i.status }}</p>
 											</th>
 											<th>
-												<p>{{ i.remarks }}</p>
+												{% if i.status == "COMPLETE" %}
+												<div class="view">
+													<a href="{% url 'omr:view_results' i.id %}" onclick="return popitup('{% url 'omr:view_results' i.id %}')">
+														<input type="button" value="View">
+													</a>
+												</div>
+												{% endif %}
 											</th>
 											<th>
 												{% if i.status == "COMPLETE" %}
@@ -118,13 +132,14 @@
 											</th>
 										</tr>
 										{% block javascript %}
-										{% if i.status == "PENDING" %}
-											<script type="text/javascript">
+										<script type="text/javascript">
+											{% if i.status == "PENDING" %}
 												window.setTimeout(function () {
 													location.href = "{% url 'omr:home' %}";
 												}, 30000);
-											</script>
-										{% endif %}
+											{% endif %}
+										</script>
+										<script src="http://malsup.github.com/jquery.form.js"></script>
 										{% endblock %}
 										{% endfor %}
 									</tbody>
