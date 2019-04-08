@@ -20,7 +20,7 @@
 	background: #BAB2B5;
 }
 
-.home input[type=submit]:hover, .home .download a input[type=button]:hover {
+.home input[type=submit]:hover, .home .download a input[type=button]:hover, .home .view a input[type=button]:hover {
 	background: #2B7A78;
 }
 
@@ -44,7 +44,7 @@
 	font-family: "Roboto", sans-serif;
 }
 
-.home .download input {
+.home .download input, .home .view input {
 	font-family: "Roboto", sans-serif;
 	font-size: 13px;
 	background: #BAB2B5;
@@ -74,4 +74,36 @@
     width: 28em;
     min-width: 300px;
     margin: 100px auto;
+}
+
+.home .breadcrumbs {
+	background: #f3f3f3;
+	padding: 5px 20px;
+	position: sticky;
+	top: 0;
+}
+
+.home .breadcrumbs p {
+	color: #000000;
+	margin: 5px;
+}
+
+.home .breadcrumbs .navigation p {
+	float: left;
+}
+
+.home .breadcrumbs .navigation p a {
+	color: #000000;
+}
+
+.home .breadcrumbs .user p {
+	text-align: end;
+}
+
+.home .breadcrumbs .user p a { 
+	color: #447e9b;
+}
+
+.home .breadcrumbs p a:hover {
+	color: #A9A9A9;
 }
