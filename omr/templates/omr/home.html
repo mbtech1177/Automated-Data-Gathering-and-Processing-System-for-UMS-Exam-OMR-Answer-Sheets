@@ -105,7 +105,15 @@
 												<p>{{ i.date }}</p>
 											</th>
 											<th>
-												<p>{{ i.status }}</p>
+												{% if i.status == "COMPLETE" %}
+													<p>
+														<img src="{% static 'omr/media/green_flag.png' %}" alt="green_flag" style="width: 15px; height: 15px;"> {{ i.status }}
+													</p>
+												{% else %}
+													<p>
+														<img src="{% static 'omr/media/red_flag.png' %}" alt="red_flag" style="width: 15px; height: 15px;"> {{ i.status }}
+													</p>
+												{% endif %}
 											</th>
 											<th>
 												{% if i.status == "COMPLETE" %}
