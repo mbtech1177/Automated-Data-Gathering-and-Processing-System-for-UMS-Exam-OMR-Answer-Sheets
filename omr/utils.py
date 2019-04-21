@@ -47,11 +47,20 @@ def generateExcel(course_code, data):
 	row = 1
 	col = 0
 
+	red = workbook.add_format({'font_color': 'red'})
 	for matric, course, answers, result in (data): 
-		worksheet.write(row, col, matric)
-		worksheet.write(row, col + 1, course)
-		worksheet.write(row, col + 2, answers)
-		worksheet.write(row, col + 3, result)
+		if (matric == course == answers == result == "FAILED"):
+			worksheet.write(row, col, matric, red)
+			worksheet.write(row, col + 1, course, red)
+			worksheet.write(row, col + 2, answers, red)
+			worksheet.write(row, col + 3, result, red)
+			
+		else:
+			worksheet.write(row, col, matric)
+			worksheet.write(row, col + 1, course)
+			worksheet.write(row, col + 2, answers)
+			worksheet.write(row, col + 3, result)
+
 		row += 1
 
 	workbook.close()
