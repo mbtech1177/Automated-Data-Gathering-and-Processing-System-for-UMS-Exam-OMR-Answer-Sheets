@@ -31,6 +31,10 @@
 		{% for row in excel_data %}
 			{% if forloop.first %}
 				<tr>
+					<th>
+						Page
+					</th>
+
 					{% for cell in row %}
 						<th>
 							{{ cell }}
@@ -38,13 +42,23 @@
 					{% endfor %}
 					<br class="clear">
 				</tr>
-				{% else %}
-				<tr>
+			{% else %}
+				<tr>	
+					<td>
+						{{ forloop.counter0 }}
+					</td>
+
 					{% for cell in row %}
 						<label>&nbsp;</label>
-						<td>
-							{{ cell }}
-						</td>
+						{% if "FAILED" in cell  %}
+							<td style="color: red">
+								{{ cell }}
+							</td>
+						{% else %}
+							<td>
+								{{ cell }}
+							</td>
+						{% endif %}
 						<label>&nbsp;</label>
 						<label>&nbsp;</label>
 					{% endfor %}
